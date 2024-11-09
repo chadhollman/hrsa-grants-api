@@ -1,6 +1,6 @@
 combined_active_program_codes
 -
-Grant_Activity_Code varchar(3)
+Grant_Activity_Code PK varchar(3)
 Grant_Program_Name varchar(100)
 HRSA_Program_Area_Name varchar(40)
 
@@ -8,7 +8,7 @@ HRSA_Program_Area_Name varchar(40)
 maternal_ehb_2023
 -
 Grantee_Name text(35)
-Grant_Number
+Grant_Number PK
 HRSA_Program_Area
 Program_Name
 Activity_Code
@@ -17,7 +17,7 @@ Financial_Assistance
 County
 State
 DUNS_Number
-UEI_Number
+UEI_Number PK
 
 maternal_ehb_active
 -
@@ -27,9 +27,9 @@ Grantee_Address
 Grantee_City
 Grantee_State_Abbreviation
 Grantee_ZIP_Code
-Grant_Activity_Code
-Grant_Number
-Grant_Serial_Number
+Grant_Activity_Code FK >- combined_active_program_codes.Grant_Activity_Code
+Grant_Number 
+Grant_Serial_Number PK
 Project_Period_Start_Date
 Grant_Project_Period_End_Date
 HRSA_Program_Area_Code
@@ -60,8 +60,8 @@ Grantee_State_Abbreviation
 State_Name
 Grantee_ZIP_Code
 Grant_Activity_Code
-Grant_Number
-Grant_Serial_Number
+Grant_Number FK >- maternal_ehb_grantees.Grant_Number FK >- maternal_ehb_active.Grant_Number FK >- maternal_ehb_2023.Grant_Number
+Grant_Serial_Number PK 
 Project_Period_Start_Date
 Project_Period_Start_Date_Text_String
 Grant_Project_Period_End_Date
@@ -94,7 +94,7 @@ Program_Area
 Program_Name
 Fiscal_Year
 Activity_Code
-Grant_Number
+Grant_Number PK
 Grantee_Name
 State
 County
@@ -105,7 +105,7 @@ Grantee_Contact_Details
 
 wic_states
 -
-State_Agency_or_Indian_Tribal_Organization
+State_Agency_or_Indian_Tribal_Organization FK >- maternal_ehb_awarded.State_Name
 10-1-22
 11-1-22
 12-1-22
@@ -122,7 +122,7 @@ Average_Participation
 
 wic_totals
 -
-State_Agency_or_Indian_Tribal_Organization
+State_Agency_or_Indian_Tribal_Organization FK >- maternal_ehb_awarded.State_Name
 10-1-22
 11-1-22
 12-1-22
