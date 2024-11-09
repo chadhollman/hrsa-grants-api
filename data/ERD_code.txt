@@ -4,6 +4,7 @@ Grant_Activity_Code TEXT PK
 Grant_Program_Name TEXT
 HRSA_Program_Area_Name TEXT
 
+
 maternal_ehb_2023
 -
 Grantee_Name TEXT
@@ -29,8 +30,8 @@ Grantee_ZIP_Code TEXT
 Grant_Activity_Code TEXT FK >- combined_active_program_codes.Grant_Activity_Code
 Grant_Number TEXT
 Grant_Serial_Number INT PK
-Project_Period_Start_Date NUMERIC
-Grant_Project_Period_End_Date NUMERIC
+Project_Period_Start_Date DATE
+Grant_Project_Period_End_Date DATE
 HRSA_Program_Area_Code TEXT
 HRSA_Program_Area_Name TEXT
 Grant_Program_Name TEXT
@@ -38,7 +39,7 @@ US_Congressional_Representative_Name TEXT
 Complete_County_Name TEXT
 Name_of_US_Senator_Number_One TEXT
 Name_of_US_Senator_Number_Two TEXT
-Data_Warehouse_Record_Create_Date NUMERIC
+Data_Warehouse_Record_Create_Date DATE
 Grantee_Type_Description TEXT
 DUNS_Number REAL
 Geocoding_Artifact_Address_Primary_X_Coordinate REAL
@@ -61,10 +62,10 @@ Grantee_ZIP_Code INT
 Grant_Activity_Code TEXT
 Grant_Number TEXT FK >- maternal_ehb_grantees.Grant_Number FK >- maternal_ehb_active.Grant_Number FK >- maternal_ehb_2023.Grant_Number
 Grant_Serial_Number PK INT
-Project_Period_Start_Date NUMERIC
-Project_Period_Start_Date_Text_String NUMERIC
-Grant_Project_Period_End_Date NUMERIC
-Grant_Project_Period_End_Date_Text NUMERIC
+Project_Period_Start_Date DATE
+Project_Period_Start_Date_Text_String DATE
+Grant_Project_Period_End_Date DATE
+Grant_Project_Period_End_Date_Text DATE
 HRSA_Program_Area_Code TEXT
 HRSA_Program_Area_Name TEXT
 Complete_County_Name TEXT
@@ -83,8 +84,8 @@ Unique_Entity_Identifier TEXT
 CCN INT
 Geocoding_Artifact_Address_Primary_X_Coordinate REAL
 Geocoding_Artifact_Address_Primary_Y_Coordinate REAL
-Data_Warehouse_Record_Create_Date NUMERIC
-Data_Warehouse_Record_Create_Date_Text NUMERIC
+Data_Warehouse_Record_Create_Date DATE
+Data_Warehouse_Record_Create_Date_Text DATE
 
 
 maternal_ehb_grantees
@@ -104,20 +105,13 @@ Grantee_Contact_Details TEXT
 
 wic_states
 -
-State_Agency_or_Indian_Tribal_Organization TEXT FK >- maternal_ehb_awarded.State_Name
-10-1-22 REAL
-11-1-22 REAL
-12-1-22 REAL
-1-1-23 REAL
-2-1-23 REAL
-3-1-23 REAL
-4-1-23 REAL
-5-1-23 REAL
-6-1-23 REAL
-7-1-23 REAL
-8-1-23 REAL
-9-1-23 REAL
-Average_Participation REAL
+State-IndianTribe TEXT FK >- maternal_ehb_awarded.State_Name
+FY2019 REAL
+FY2020 REAL
+FY2021 REAL
+FY2022 REAL
+FY2023 REAL
+
 
 wic_totals
 -
