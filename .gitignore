@@ -1,10 +1,11 @@
+# Files that are too large
+data/FS_EHB_AWARD_GRANT_FA_AGR_MVX.csv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.DS_Store
-*.csv
-*.xlsx
 
 # C extensions
 *.so
