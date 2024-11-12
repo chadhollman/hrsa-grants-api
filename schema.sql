@@ -120,7 +120,7 @@ CREATE TABLE "maternal_ehb_awarded" (
 
 CREATE TABLE "wic_states" (
     "ID" INTEGER PRIMARY KEY,
-    "State_IndianTribe" TEXT  NOT NULL ,
+    "State_Indian_Tribe" TEXT  NOT NULL ,
     "FY2019" REAL  NOT NULL ,
     "FY2020" REAL  NOT NULL ,
     "FY2021" REAL  NOT NULL ,
