@@ -1,6 +1,9 @@
 # Files that are too large
 data/FS_EHB_AWARD_GRANT_FA_AGR_MVX.csv
 
+# created sql files
+*.sqlite
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
