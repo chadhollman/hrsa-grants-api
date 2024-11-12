@@ -6,7 +6,9 @@ conn = sqlite3.connect('database.sqlite')
 cursor = conn.cursor()
 
 # csv_files_list = ['combined_active_program_codes', 'maternal_ehb_grantees', 'maternal_ehb_2023', 'maternal_ehb_active', 'maternal_ehb_awarded', 'wic_states', 'wic_totals']
-csv_files_list = ['combined_active_program_codes', 'maternal_ehb_2023', 'maternal_ehb_awarded', 'wic_states', 'wic_totals']
+# csv_files_list = ['maternal_ehb_grantees', 'maternal_ehb_active', 'wic_states', 'wic_totals']
+# csv_files_list = ['combined_active_program_codes', 'maternal_ehb_2023', 'maternal_ehb_awarded']
+csv_files_list = ['wic_totals']
 
 for csv_file in csv_files_list:
   csv_file_path = f'data/output/{csv_file}.csv'
