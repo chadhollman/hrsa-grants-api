@@ -5,10 +5,10 @@ import csv
 conn = sqlite3.connect('database.sqlite')
 cursor = conn.cursor()
 
-# csv_files_list = ['combined_active_program_codes', 'maternal_ehb_grantees', 'maternal_ehb_2023', 'maternal_ehb_active', 'maternal_ehb_awarded', 'wic_states', 'wic_totals']
+csv_files_list = ['combined_active_program_codes', 'maternal_ehb_grantees', 'maternal_ehb_2023', 'maternal_ehb_active', 'maternal_ehb_awarded', 'wic_states', 'wic_totals']
 # csv_files_list = ['maternal_ehb_grantees', 'maternal_ehb_active', 'wic_states', 'wic_totals']
 # csv_files_list = ['combined_active_program_codes', 'maternal_ehb_2023', 'maternal_ehb_awarded']
-csv_files_list = ['wic_totals']
+# csv_files_list = ['wic_states', 'wic_totals']
 
 for csv_file in csv_files_list:
   csv_file_path = f'data/output/{csv_file}.csv'
@@ -34,18 +34,9 @@ for csv_file in csv_files_list:
 
   # Insert the data into the existing table
   cursor.executemany(insert_query, data)
+  conn.commit()
 
-  # try:
-  #   cursor.executemany(insert_query, data)
-  # except sqlite3.IntegrityError as e:
-  #     if "UNIQUE constraint failed: maternal_ehb_grantees.Grant_Number" in str(e):
-  #         print(f"Skipping duplicate Grant_Number: {row[columns.index('Grant_Number')]}")
-  #     else:
-  #         # Re-raise the exception if it's not the specific UNIQUE constraint we're handling
-  #         raise
-
-# Commit the changes and close the connection
-conn.commit()
+# Close the connection
 conn.close()
 
 print(f"Data imported successfully into {table_name}!")

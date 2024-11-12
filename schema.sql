@@ -8,6 +8,7 @@
 );
 
 CREATE TABLE "maternal_ehb_grantees" (
+    "ID" INTEGER PRIMARY KEY,
     "Program_Area" TEXT  NOT NULL ,
     "Program_Name" TEXT  NOT NULL ,
     "Fiscal_Year" INT  NOT NULL ,
@@ -19,10 +20,7 @@ CREATE TABLE "maternal_ehb_grantees" (
     "Congressional_District" TEXT  NOT NULL ,
     "Grantee_Class" TEXT  NOT NULL ,
     "Awardee_Amount" INT  NOT NULL ,
-    "Grantee_Contact_Details" TEXT  NOT NULL ,
-    PRIMARY KEY (
-        "Grant_Number"
-    )
+    "Grantee_Contact_Details" TEXT  NOT NULL
 );
 
 CREATE TABLE "maternal_ehb_2023" (
@@ -43,6 +41,7 @@ CREATE TABLE "maternal_ehb_2023" (
 );
 
 CREATE TABLE "maternal_ehb_active" (
+    "ID" INTEGER PRIMARY KEY,
     "Award_Year" INT  NOT NULL ,
     "Grantee_Name" TEXT  NOT NULL ,
     "Grantee_Address" TEXT  NOT NULL ,
@@ -66,9 +65,6 @@ CREATE TABLE "maternal_ehb_active" (
     "DUNS_Number" REAL  NOT NULL ,
     "Geocoding_Artifact_Address_Primary_X_Coordinate" REAL  NOT NULL ,
     "Geocoding_Artifact_Address_Primary_Y_Coordinate" REAL  NOT NULL ,
-    PRIMARY KEY (
-        "Grant_Serial_Number"
-    ),
     FOREIGN KEY("Grant_Activity_Code") REFERENCES "combined_active_program_codes" ("Grant_Activity_Code")
 );
 
@@ -126,7 +122,7 @@ CREATE TABLE "wic_states" (
     "FY2021" REAL  NOT NULL ,
     "FY2022" REAL  NOT NULL ,
     "FY2023" REAL  NOT NULL ,
-    FOREIGN KEY("State-IndianTribe") REFERENCES "maternal_ehb_awarded" ("State_Name")
+    FOREIGN KEY("State_Indian_Tribe") REFERENCES "maternal_ehb_awarded" ("State_Name")
 );
 
 CREATE TABLE "wic_totals" (
