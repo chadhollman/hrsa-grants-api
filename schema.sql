@@ -1,4 +1,4 @@
-﻿CREATE TABLE "combined_active_program_codes" (
+CREATE TABLE "combined_active_program_codes" (
     "Grant_Activity_Code" TEXT  NOT NULL ,
     "Grant_Program_Name" TEXT  NOT NULL ,
     "HRSA_Program_Area_Name" TEXT  NOT NULL ,
