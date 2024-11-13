@@ -49,7 +49,29 @@ def get_activity_code(code):
         })
     else:
         return jsonify({"error": "User record not found"}), 404
+
+# returns top grants from 2023 by $ amount
+@app.route('/topgrants/<topgrants>', methods=['GET'])
+def get_top_grants(topgrants):
+    conn = get_db()
+    # traditional sql cursor not used in favor of a panda's dataframe for simplicity
+    # using the cursor would be more preformant
+    cursor = conn.cursor()
     
+    query = f"SELECT * FROM maternal_ehb_2023 WHERE State = '{topgrants}' ORDER BY Financial_Assistance DESC"
+    
+    df = pd.read_sql(query, conn)
+    df = df[['Financial_Assistance', 'County', 'State', 'Grantee_Name', 'Program_Name']]
+    conn.close()
+    
+    # record = False
+    if len(df)!=0:
+        return jsonify({
+            "record": df.to_dict(orient = 'records')
+        })
+    else:
+        return jsonify({"error": "User record not found"}), 404
+         
 # mimimal route example
 @app.route('/return/<name>')
 def return_name(name):
