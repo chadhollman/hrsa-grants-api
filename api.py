@@ -103,7 +103,7 @@ def get_user_record(name):
 @app.route('/code/<code>', methods=['GET'])
 def get_activity_code(code):
     conn = get_db()
-    query = f"SELECT * FROM maternal_ehb_awarded WHERE Grant_Activity_Code = '{code}'"
+    query = f"SELECT * FROM maternal_ehb_active WHERE Grant_Activity_Code = '{code}'"
 
     df = pd.read_sql(query, conn)
     df = df["Grantee_Name"]
