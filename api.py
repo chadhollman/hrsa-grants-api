@@ -7,55 +7,62 @@ app = Flask(__name__)
 api = Api(app)
 
 def get_db():
-    DATABASE = '/Users/samsonweiser/class/DATA-PT-EAST-JULY-071524/10-Advanced-SQL/1/Activities/02-Stu_IceCream_Connection/Resources/icecreamstore.sqlite'
+    DATABASE = 'database.sqlite'
     conn = sqlite3.connect(DATABASE)
-    # conn.row_factory = sqlite3.Row
     return conn
 
+# takes grantee name, and returns all grant names they have been awarded
 @app.route('/name/<name>', methods=['GET'])
 def get_user_record(name):
     conn = get_db()
+    # traditional sql cursor not used in favor of a panda's dataframe for simplicity
+    # using the cursor would be more preformant
     cursor = conn.cursor()
     
-    query = f"SELECT * FROM icecreamstore WHERE Flavors = '{name}'"
-    # query = "SELECT * FROM icecreamstore WHERE Flavors = ?"
-    # query = "SELECT * FROM icecreamstore"
-
-    df = pd.read_sql(query, conn)
-
-    # cursor.execute(query)
-    # cursor.execute(query)
-
-    # record = cursor.fetchone()
-
-    # print(record)
+    query = f"SELECT * FROM maternal_ehb_grantees WHERE Grantee_Name = '{name}'"
     
+    df = pd.read_sql(query, conn)
     conn.close()
     
     # record = False
     if len(df)!=0:
         return jsonify({
-            "message": "User record found",
             "record": df.to_dict(orient = 'records')
         })
     else:
         return jsonify({"error": "User record not found"}), 404
 
-class HelloWorld(Resource):
-    def get(self):
-        return {'hello': 'world'}
+# takes an activity code, and returns the Grantee_Name
+@app.route('/code/<code>', methods=['GET'])
+def get_activity_code(code):
+    conn = get_db()
+    query = f"SELECT * FROM maternal_ehb_awarded WHERE Grant_Activity_Code = '{code}'"
 
-api.add_resource(HelloWorld, '/')
+    df = pd.read_sql(query, conn)
+    df = df["Grantee_Name"]
+    conn.close()
 
+    # df = df.
+    if len(df)!=0:
+        return jsonify({
+            "record": df.to_dict()
+        })
+    else:
+        return jsonify({"error": "User record not found"}), 404
+    
+# mimimal route example
 @app.route('/return/<name>')
 def return_name(name):
     return {'n2': name}
 
+# takes an activity code, and determines if it is active or not
+# @app.route('/awarded/<code>', methods=['GET'])
+# def get_activity_code(code):
+#     conn = get_db()
+#     query = f"SELECT * FROM maternal_ehb_awarded WHERE Grantee_Name = '{code}'"
+
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
 
 # code I added, but then removed
 # class IceCreamName(Resource):
