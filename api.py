@@ -3,10 +3,7 @@ from flask_restful import Resource, Api
 import sqlite3
 import pandas as pd
 
-
 # United States of America Python Dictionary to translate States,
-
-
 us_state_to_abbrev = {
     "Alabama": "AL",
     "Alaska": "AK",
@@ -122,9 +119,7 @@ def get_activity_code(code):
 def get_top_grants(topgrants):
     conn = get_db()
     
-    
     query = f"SELECT * FROM maternal_ehb_2023 WHERE State = '{topgrants}'"
-    
     df = pd.read_sql(query, conn)
     df = df[['Financial_Assistance', 'County', 'State', 'Grantee_Name', 'Program_Name']]
     conn.close()
@@ -141,11 +136,9 @@ def get_top_grants(topgrants):
 @app.route('/program/<program>', methods=['GET'])
 def get_program(program):
     conn = get_db()
-    
-    
-    query = f"SELECT * FROM combined_award_program_codes WHERE Grant_Program_Name = '{program}'"
-    
+    query = f"SELECT * FROM combined_award_program_codes WHERE Grant_Program_Name = '{program}'" 
     df = pd.read_sql(query, conn)
+
     grant_code = df['Grant_Activity_Code'].iloc[0]
     query = f"SELECT * FROM maternal_ehb_active WHERE Grant_Activity_Code = '{grant_code}'"
     df = pd.read_sql(query, conn)
@@ -159,38 +152,11 @@ def get_program(program):
         })
     else:
         return jsonify({"error": "User record not found"}), 404
-
          
 # mimimal route example
 @app.route('/return/<name>')
 def return_name(name):
     return {'n2': name}
 
-# takes an activity code, and determines if it is active or not
-# @app.route('/awarded/<code>', methods=['GET'])
-# def get_activity_code(code):
-#     conn = get_db()
-#     query = f"SELECT * FROM maternal_ehb_awarded WHERE Grantee_Name = '{code}'"
-
 if __name__ == '__main__':
     app.run(debug=True)
-
-# code I added, but then removed
-# class IceCreamName(Resource):
-#     def get(self, name):
-#         # return json of the row associated with an ice cream name
-#         return {}
-
-# api.add_resource(IceCreamName, '/IceCreamName/<string:name>')
-
-# def get_db():
-#     db = getattr(g, '_database', None)
-#     if db is None:
-#         db = g._database = sqlite3.connect(DATABASE)
-#     return db
-
-# @app.teardown_appcontext
-# def close_connection(exception):
-#     db = getattr(g, '_database', None)
-#     if db is not None:
-#         db.close()
