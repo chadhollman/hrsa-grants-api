@@ -15,7 +15,7 @@ for csv_file in csv_files_list:
   table_name = csv_file
 
   # Open and read the CSV file
-  with open(csv_file_path, 'r') as csv_file:
+  with open(csv_file_path, 'r', encoding= "utf-8") as csv_file:
       csv_reader = csv.reader(csv_file)
       # Skip the header row if it exists
       next(csv_reader, None)
