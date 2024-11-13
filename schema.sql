@@ -7,6 +7,15 @@
     )
 );
 
+CREATE TABLE "combined_award_program_codes" (
+    "Grant_Activity_Code" TEXT  NOT NULL ,
+    "Grant_Program_Name" TEXT  NOT NULL ,
+    "HRSA_Program_Area_Name" TEXT  NOT NULL ,
+    PRIMARY KEY (
+        "Grant_Activity_Code"
+    )
+);
+
 CREATE TABLE "maternal_ehb_grantees" (
     "ID" INTEGER PRIMARY KEY,
     "Program_Area" TEXT  NOT NULL ,
