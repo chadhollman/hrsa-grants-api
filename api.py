@@ -159,7 +159,7 @@ def return_name(name):
     return {'returned string from url': name}
 
 @app.route('/')
-def return_name(name):
+def example(name):
     return {
         'n2': name,
         'takes grantee name, and returns all grant names they have been awarded': 'http://67.205.145.13:5000/name/Virginia%20Commonwealth%20University',
