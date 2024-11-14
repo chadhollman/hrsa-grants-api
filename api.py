@@ -158,6 +158,23 @@ def get_program(program):
 def return_name(name):
     return {'n2': name}
 
+@app.route('/')
+def return_name(name):
+    return {
+        'n2': name,
+        'takes grantee name, and returns all grant names they have been awarded': 'http://67.205.145.13:5000/name/Virginia%20Commonwealth%20University',
+        'takes grantee name, and returns all grant names they have been awarded': 'http://67.205.145.13:5000/name/University%20Of%20Texas%20At%20Austin',
+        'takes grantee name, and returns all grant names they have been awarded': 'http://67.205.145.13:5000/name/UNIVERSITY%20OF%20MISSOURI%20SYSTEM',
+        'takes an activity code, and returns the Grantee_Name': 'http://67.205.145.13:5000/code/H17',
+        'takes an activity code, and returns the Grantee_Name': 'http://67.205.145.13:5000/code/H49',
+        'takes an activity code, and returns the Grantee_Name': 'http://67.205.145.13:5000/code/H79',
+        'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/VA',
+        'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/TX',
+        'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/FL'
+
+
+            }
+
 if __name__ == '__main__':
     # app.run(debug=True)
     app.run(host='0.0.0.0')
