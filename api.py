@@ -156,7 +156,7 @@ def get_program(program):
 # mimimal route example
 @app.route('/return/<name>')
 def return_name(name):
-    return {'n2': name}
+    return {'returned string from url': name}
 
 @app.route('/')
 def return_name(name):
@@ -171,9 +171,7 @@ def return_name(name):
         'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/VA',
         'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/TX',
         'returns top grants from 2023 by $ amount, replace with any state abbreviation': 'http://67.205.145.13:5000/topgrants/FL'
-
-
-            }
+    }
 
 if __name__ == '__main__':
     # app.run(debug=True)
