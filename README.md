@@ -16,8 +16,8 @@ Using this database, we created a Flask application that provides a simple REST 
 - run in this order EHB Grants.py, combined_active_program_codes.py, combine_active_award_codes.py with the python command to clean data and repopulate the data/output folder
 - If a database.sqlite file exists in the root dir of the project delete it
 - run in this order create_db_schema.py, and populate_db.py
-- run api.py in your envirnment as you see fit
-- (optinal) on local just running api.py is fine. However if you want to test this in a server you will have to configure port 5000 to be opne, and will want to run api.py in a detached terminal muiltiplexer such as screen. If you want to server it will SSL you will need a WSGI server such as, Gunicorn, and then will have to configure a reverse proxy such as, Ngnix, to server that with SSL. Something like the certbot package from Let's Encypt can be used to obtain a SSL certificate. This entire step is optinal for development, and even for demoing on a basic server. However all of the above should be done to use this in production.
+- run api.py in your environment as you see fit
+- (optional) on local just running api.py is fine. However if you want to test this in a server you will have to configure port 5000 to be opne, and will want to run api.py in a detached terminal multiplexer such as screen. If you want to server it will SSL you will need a WSGI server such as, Gunicorn, and then will have to configure a reverse proxy such as, Ngnix, to server that with SSL. Something like the certbot package from Let's Encrypt can be used to obtain a SSL certificate. This entire step is optional for development, and even for demoing on a basic server. However all of the above should be done to use this in production.
 
 ## Using Our API
 takes Grantee_Name, and returns info on all grants they have been awarded
