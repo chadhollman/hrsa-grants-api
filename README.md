@@ -16,3 +16,6 @@ The Flask application is then hosted on a Digital Ocean VPS available at (http:/
 
 ## Ethical Considerations
 We came through the data through public sources and were sure to clean up any data involving any non-public individuals so that they would not appear on any of our API returns.
+
+## Slide Presentation
+https://docs.google.com/presentation/d/1DqMg4RfkKT_jn_7MWw8fxfaO51xFHkT6UACjOiGmZ5o/edit?usp=sharing
