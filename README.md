@@ -23,21 +23,21 @@ Using this database, we created a Flask application that provides a simple REST 
 takes Grantee_Name, and returns info on all grants they have been awarded
 - /name/Virginia%20Commonwealth%20University
 - /name/University%20Of%20Texas%20At%20Austin
-- /name/UNIVERSITY%20OF%20MISSOURI%20SYSTEM
+- /name/UNIVERSITY%20OF%20MISSOURI%20SYSTEM  
 takes a Grant_Activity_Code, and returns the Grantee_Name
 - /code/H17
 - /code/H49
-- /code/T79
+- /code/T79  
 returns Who, What, Where, and How Much re: grants within a state from 2023(When)
 replace with any state abbreviation
 - /topgrants/VA
 - /topgrants/TX
-- /topgrants/FL
+- /topgrants/FL  
 take a Program_Name to get Grant_Activity_Code from one table, and then use it to reference
 another table and return all data regarding who received that grant Program_Name
 - /program/Regional%20Genetics%20Networks%20
 - /program/State%20Maternal%20Health%20Innovation%20Program%20
-- /program/EMSC%20Targeted%20Issue%20Grants%20
+- /program/EMSC%20Targeted%20Issue%20Grants%20  
 
 ## Ethical Considerations
 We came through the data through public sources and were sure to clean up any data involving any non-public individuals so that they would not appear on any of our API returns.
