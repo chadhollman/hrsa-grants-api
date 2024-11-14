@@ -132,7 +132,8 @@ def get_top_grants(topgrants):
     else:
         return jsonify({"error": "User record not found"}), 404
     
-# take a Program_Name within a single state, and return a Program_Name s as well as total WIC participants within the same state
+# take a Program_Name to get Grant_Activity_Code from one table, and then use it to reference
+# another table and return all data regarding who received that grant Program_Name
 @app.route('/program/<program>', methods=['GET'])
 def get_program(program):
     conn = get_db()
