@@ -9,6 +9,9 @@ https://www.fns.usda.gov/pd/wic-program
 We collected data from the sources above. Then cleaned that data with pandas scripts before exporting them to clean CSV matching SQLite tables. A separate set of scripts then creates a SQLite DB with those matching tables, and then loads the CSVs into the SQLite database for use in our Flask application.
 Using this database, we created a Flask application that provides a simple REST API with routes for returning JSON serialized data for analytical use.
 
+## Project Members
+Samson Weiser, Lee Baedke, Chad Hollman, Tysen Wadge, Julia McKinnon
+
 ## Setting up for local development
 - (optional) in api.py uncomment line 178 and comment in line 179 to toggle local development mode on
 - install python3 as well as the follower python libraries: pandas, flask, flask-restful
